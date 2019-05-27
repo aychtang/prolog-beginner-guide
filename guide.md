@@ -13,6 +13,9 @@ Guide to Prolog from the beginner:
     3. [Composing fact checks](#composing-fact-checks)
     4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
 4. [Using SWI-Prolog](#using-swi-prolog)
+    1. [Loading a file into Prolog environment](#loading-a-file-into-Prolog-environment)
+    2. [Halting the Prolog environment](#halting-the-prolog-environment)
+    3. [Reloading the Prolog environment](#reloading-the-prolog-environment)
 5. [Lists](#lists)
     1. [Recursion with lists](#recursion-with-lists)
 
@@ -155,6 +158,8 @@ Using SWI-Prolog
 ======
 The standard usage for `swipl` will be to load a file, it will then allow you to execute commands in a Prolog REPL environment. I've left a full program of the family tree code in the file `godfamily.pl`. Here is how you can load the file using `swipl`, execute a query, and then close the REPL.
 
+#### Loading a file into Prolog environment
+
 ```
 $ swipl -l godfamily.pl
 
@@ -171,6 +176,14 @@ CS = [clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, c
 
 $
 ```
+
+#### Halting the prolog environment
+
+The best way to exit the Prolog REPL is to run the `halt.` command.
+
+#### Reloading the Prolog environment
+
+If you want to reload the environment with changes to the file you've made since you opened it, you can run the `make.` command.
 
 Lists
 ======
