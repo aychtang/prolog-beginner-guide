@@ -122,8 +122,17 @@ Here we add the `father(P, C)` rule which was not yet defined, and also use it i
 
 By default in SWI-Prolog implementation, when you find the solution to a substitution in a rule, it returns the first valid result. A useful query to make would be to find all possible solutions to a substitution, for example what if I wanted to find all the parents of a person within our universe. To do that we can use the builtin `forall/3`.
 
-`forall/3` takes three arguments `findall(Object, Goal, List)`.
+`findall/3` takes three arguments `findall(Object, Goal, List)`.
 
 ```
-forall(X, parent(X, clio), PS). # PS = [ zeus, mnemonsyne ]
+findall(X, parent(X, clio), PS). # PS = [ zeus, mnemonsyne ]
+```
+
+By extension if we wanted to find all children of a person, we would be able to use findall on a new `child(C, P)` rule.
+
+```
+child(C, P):-
+    parent(P, C).
+
+findall(X, child(zeus, X), CS). # CS = [ clio, euterpe ]
 ```

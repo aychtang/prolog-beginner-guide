@@ -41,3 +41,6 @@ mother(P, C):-
 is_sibling(C1, C2):-
     mother(X, C1), mother(X, C2), C1\=C2;
     father(X, C1), father(X, C2), C1\=C2.
+
+child(C, P):-
+    parent(P, C).
