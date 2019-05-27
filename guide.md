@@ -53,7 +53,7 @@ parent(X, clio). # X = zeus.
 ```
 
 ### Writing rules
-You can write rules with use or combine facts together to work toward a goal.
+You can write rules which use or combine facts together to work toward a goal.
 
 
 #### Combining fact checks
