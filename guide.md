@@ -11,7 +11,7 @@
     2. [Comparing fact checks with different arguments](#comparing-fact-checks-with-different-arguments)
     3. [Composing fact checks](#composing-fact-checks)
     4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
-4. [Using SWI-Prolog][#using-swi-prolog]
+4. [Using SWI-Prolog](#using-swi-prolog)
 
 Intro
 ======
