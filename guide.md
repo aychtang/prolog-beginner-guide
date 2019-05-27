@@ -1,6 +1,15 @@
-
-
 ## Guide to Prolog from the beginner:
+
+# Table of Contents
+1. [Intro](#intro)
+2. [Facts](#facts)
+    1. [Querying Facts](#querying-facts)
+    2. [Substitution](#substitution)
+3. [Rules](#rules)
+    1. [Combining fact checks](#combining-fact-checks)
+    2. [Comparing fact checks with different arguments](#comparing-fact-checks-with-different-arguments)
+    3. [Composing fact checks](#composing-fact-checks)
+    4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
 
 ### Intro
 
@@ -52,7 +61,7 @@ female(X). # x = mnemosyne.
 parent(X, clio). # X = zeus.
 ```
 
-### Writing rules
+### Rules
 You can write rules which use or combine facts together to work toward a goal.
 
 
