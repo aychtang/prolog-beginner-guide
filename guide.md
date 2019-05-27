@@ -161,7 +161,7 @@ Please run ?- license. for legal details.
 For online help and background, visit http://www.swi-prolog.org
 For built-in help, use ?- help(Topic). or ?- apropos(Word).
 
-?- findall(X, child(X, zeus), CS).
+?- findall(X, parent(zeus, X), CS).
 CS = [clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope].
 
 ?- halt.
