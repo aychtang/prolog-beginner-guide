@@ -9,9 +9,9 @@ Guide to Prolog from the beginner:
     1. [Querying Facts](#querying-facts)
     2. [Substitution](#substitution)
 3. [Rules](#rules)
-    1. [Combining fact checks](#combining-fact-checks)
-    2. [Comparing fact checks with different arguments](#comparing-fact-checks-with-different-arguments)
-    3. [Composing fact checks](#composing-fact-checks)
+    1. [Combining Fact checks](#combining-fact-checks)
+    2. [Comparing Fact checks with different arguments](#comparing-fact-checks-with-different-arguments)
+    3. [Composing Fact checks](#composing-fact-checks)
     4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
 4. [Using SWI-Prolog](#using-swi-prolog)
     1. [Loading a file into Prolog environment](#loading-a-file-into-prolog-environment)
@@ -32,13 +32,13 @@ What is Prolog anyway? It is a logic based programming language where you define
 
 Facts:
 ======
-The syntax for defining a fact, is the following:
+The syntax for defining a Term, is the following:
 
 ```
 factname(relation1, relation2 ... relationN) :- Body (also called goal).
 ```
 
-Let's add a few facts to our programs universe:
+Let's add a few Facts to our programs universe:
 
 ```
 male(zeus).
@@ -49,7 +49,7 @@ parent(zeus, clio).
 parent(mnemosyne, clio).
 ```
 
-This block of code then is defining a few facts within the universe of the program:
+This block of code then is defining a few Facts within the universe of the program:
 
 ```
 There is a male Zeus.
@@ -60,7 +60,7 @@ Zeus is the parent of Clio.
 Mnemosyne is the parent of Clio.
 ```
 
-Note that we are using the shorthand here to assert that the Body of all these facts is true.
+Note that since we are defining Facts, none of them have a Body (or goal), but simply resolve to `true`. A Fact is a Term which has no body.
 
 ```
 male(zeus).
@@ -71,7 +71,7 @@ male(zeus) :- true.
 #### Querying facts:
 When running this code with a Prolog interpreter we can then run some queries on this set of facts and look at some cool features of Prolog already:
 
-You can execute a fact with arguments to see if the relation exists in the universe:
+You can execute a Fact with arguments to see if the relation exists in the universe:
 ```
 male(zeus). % true.
 female(mnemosyne). % true.
@@ -82,7 +82,7 @@ parent(zeus, mnemosyne). % false.
 ```
 
 #### Substitution:
-You can also leave out an argument of a fact, to see if there are any valid substitutions:
+You can also leave out an argument of a Fact, to see if there are any valid substitutions:
 
 ```
 male(X). % X = zeus.
@@ -93,12 +93,12 @@ parent(X, clio). % X = zeus.
 
 Rules
 ======
-You can write rules which use or combine facts together to work toward a goal.
+You can write rules which use or combine Facts together to work toward a goal.
 
 
-#### Combining fact checks
+#### Combining Fact checks
 
-Let's say we want to find who the mother of a certain person is within our universe, and we wanted to do that through the interface `mother(parent, child)`. We could of course simply add a new fact into the universe, which declares the mother relationships that exist, however we can reduce the number of facts we have to declare by writing facts that can be possibly computed from existing relationships into these rules.
+Let's say we want to find who the mother of a certain person is within our universe, and we wanted to do that through the interface `mother(parent, child)`. We could of course simply add a new Fact into the universe, which declares the mother relationships that exist, however we can reduce the number of Facts we have to declare by writing Facts that can be possibly computed from existing relationships into these rules.
 
 We can logically define a mother to be a parent of a child, who is also the female parent.
 
@@ -111,10 +111,10 @@ mother(P, C) :-
 mother(X, clio). % X = mnemosyne.
 ```
 
-Given an argument `P` and `C`, where the fact holds `parent(P, C)` and the fact holds `female(P)`. We can define that `P` to be the mother of `C`.
+Given an argument `P` and `C`, where the Fact holds `parent(P, C)` and the Fact holds `female(P)`. We can define that `P` to be the mother of `C`.
 
 
-#### Comparing fact checks with different arguments
+#### Comparing Fact checks with different arguments
 
 Clio was also given many sisters, so let's add one of them into our universe:
 
@@ -142,7 +142,7 @@ is_sibling(clio, euterpe). % true.
 ```
 Given arguments `X`, `C1`, and `C2` if `mother(X, _)` holds true for both `C1` and `C2`, we can define `C1` and `C2` to be siblings.
 
-#### Composing fact checks
+#### Composing Fact checks
 
 Something missing from the `is_sibling` code above, would be siblings that share a father but not the mother, so we would have to make an adjustment to write a better version of the rule.
 
