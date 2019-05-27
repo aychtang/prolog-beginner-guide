@@ -225,7 +225,7 @@ XS = [1, 2, 3].
 
 Notice how in the first evaluation where there is a List returned with only two elements inside, it is shown as `[1 | 2]`, this is because Lists can be represented and unified as the head and tail of the list. Lists can be represented `[head|tail]` where `head` will be the first element of the list, and `tail` will be the remaining elements of the list.
 
-The second `XS` value could be rewritten as [1|[2,3]]
+The second `XS` value could be rewritten as `[1|[2,3]]`.
 
 #### Recursion with Lists
 
