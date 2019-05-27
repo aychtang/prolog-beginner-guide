@@ -117,3 +117,13 @@ is_sibling(C1, C2):-
 ```
 
 Here we add the `father(P, C)` rule which was not yet defined, and also use it in `is_sibling`. The `;` symbol denotes a logical OR, so either the expression before it or after it has to hold true.
+
+### Finding all solutions to a rule
+
+By default in SWI-Prolog implementation, when you find the solution to a substitution in a rule, it returns the first valid result. A useful query to make would be to find all possible solutions to a substitution, for example what if I wanted to find all the parents of a person within our universe. To do that we can use the builtin `forall/3`.
+
+`forall/3` takes three arguments `findall(Object, Goal, List)`.
+
+```
+forall(X, parent(X, clio), PS). # PS = [ zeus, mnemonsyne ]
+```
