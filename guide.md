@@ -13,7 +13,7 @@ Guide to Prolog from the beginner:
     3. [Composing fact checks](#composing-fact-checks)
     4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
 4. [Using SWI-Prolog](#using-swi-prolog)
-    1. [Loading a file into Prolog environment](#loading-a-file-into-Prolog-environment)
+    1. [Loading a file into Prolog environment](#loading-a-file-into-prolog-environment)
     2. [Halting the Prolog environment](#halting-the-prolog-environment)
     3. [Reloading the Prolog environment](#reloading-the-prolog-environment)
 5. [Lists](#lists)
@@ -22,7 +22,7 @@ Guide to Prolog from the beginner:
 Intro
 ======
 
-What is prolog anyway? It is a logic based programming language where you define a set of facts that live inside the program, and can build rules that operate upon those facts to work toward a goal.
+What is Prolog anyway? It is a logic based programming language where you define a set of facts that live inside the program, and can build rules that operate upon those facts to work toward a goal.
 
 Facts:
 ======
@@ -177,7 +177,7 @@ CS = [clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, c
 $
 ```
 
-#### Halting the prolog environment
+#### Halting the Prolog environment
 
 The best way to exit the Prolog REPL is to run the `halt.` command.
 
@@ -198,7 +198,7 @@ is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania
 
 Lists can be represented and unified as the head and tail of the list. You can define a parameter that takes a list type as `[head | tail]` where `head` will be the first element of the list, and `tail` will be the remaining elements of the list.
 
-In order to recurse a list in prolog you must first define the base case to ensure it terminates, and then you can write the recusive logic in another rule definition that has `head` or `tail` values.
+In order to recurse a list in Prolog you must first define the base case to ensure it terminates, and then you can write the recusive logic in another rule definition that has `head` or `tail` values.
 
 ```
 % First define the base case:
