@@ -198,3 +198,14 @@ count([H | T], A, C):-
 count([1, 2, 3], S) # S = 3.
 ```
 
+Another demonstration of recursion with lists, would be to find whether an element is a member of a list:
+
+```
+member([], E):-
+    false.
+member([H, T], E);-
+    H = E;
+    member(T, E).
+```
+
+Here we define the base case where member is called with an empty array to be `false`. Then in the member function which has elements in the list, either `H = E` or `member(T, E)` must be satisifed.
