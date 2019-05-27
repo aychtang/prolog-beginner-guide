@@ -142,13 +142,10 @@ By default in SWI-Prolog implementation, when you find the solution to a substit
 findall(X, parent(X, clio), PS). # PS = [ zeus, mnemonsyne ]
 ```
 
-By extension if we wanted to find all children of a person, we would be able to use findall on a new `child(C, P)` rule.
+By extension if we wanted to find all children of a person, we would be able to use findall with the arguments of parent swapped around.
 
 ```
-child(C, P):-
-    parent(P, C).
-
-findall(X, child(X, zeus), CS). # CS = [ clio, euterpe ]
+findall(X, parent(zeus, X), CS). # CS = [ clio, euterpe ]
 ```
 
 Using SWI-Prolog
