@@ -193,7 +193,7 @@ If you want to reload the environment with changes to the file you've made since
 Lists
 ======
 
-The returned value assigned to `CS` from the the command we executed in `swipl` is a list. We can tell it's a list since this is true:
+The returned value assigned to `CS` from the the command we executed in `swipl` is a list. We can tell it's a list because Prolog says so:
 
 ```
 is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope]) % true
@@ -201,13 +201,17 @@ is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania
 
 #### List declaration
 
+Lists can be declared as empty, or as a comma separated list of Atoms, this looks like you'd expect in most programming languages.
+
 ```
 []
-[a, b, c]
+[a, b]
 [1, 2, 3]
 ```
 
-#### Working with lists
+#### Working with Lists
+
+There is a builtin `append/3` which has the parameters `(InitialList, Insertee, NewList)`.
 
 ```
 append([1], 2, XS).
@@ -217,9 +221,11 @@ append([1], [2, 3], XS).
 XS = [1, 2, 3].
 ```
 
-#### Recursion with lists
+Notice how in the first evaluation where there is a List returned with only two elements inside, it is shown as `[1 | 2]`, this is because Lists can be represented and unified as the head and tail of the list. Lists can be represented `[head|tail]` where `head` will be the first element of the list, and `tail` will be the remaining elements of the list.
 
-Lists can be represented and unified as the head and tail of the list. You can define a parameter that takes a list type as `[head | tail]` where `head` will be the first element of the list, and `tail` will be the remaining elements of the list.
+The second `XS` value could be rewritten as [1|[2,3]]
+
+#### Recursion with lists
 
 In order to recurse a list in Prolog you must first define the base case to ensure it terminates, and then you can write the recusive logic in another rule definition that has `head` or `tail` values.
 
@@ -258,12 +264,10 @@ A pattern I've found quite useful when writing Prolog programs is to use a main 
 Here is how I would write a hello world program in Prolog:
 
 ```
-
 :- intialization main.
 
 main :-
     write('Hello world'), nl, halt.
-
 ```
 
 ### TDD in Prolog
