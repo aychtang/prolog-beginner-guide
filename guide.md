@@ -142,13 +142,13 @@ By default in SWI-Prolog implementation, when you find the solution to a substit
 `findall/3` takes three arguments `findall(Object, Goal, List)`.
 
 ```
-findall(X, parent(X, clio), PS). # PS = [ zeus, mnemonsyne ]
+findall(X, parent(X, clio), PS). % PS = [ zeus, mnemonsyne ]
 ```
 
 By extension if we wanted to find all children of a person, we would be able to use findall with the arguments of parent swapped around.
 
 ```
-findall(X, parent(zeus, X), CS). # CS = [ clio, euterpe ]
+findall(X, parent(zeus, X), CS). % CS = [ clio, euterpe ]
 ```
 
 Using SWI-Prolog
@@ -196,7 +196,7 @@ count([H | T], A, C):-
     A1 is A + 1,
     count(T, A1, C).
 
-count([1, 2, 3], S) # S = 3.
+count([1, 2, 3], S) % S = 3.
 ```
 
 Another demonstration of recursion with lists, would be to find whether an element is a member of a list:
