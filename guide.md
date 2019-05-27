@@ -49,22 +49,22 @@ When running this code with a Prolog interpreter we can then run some queries on
 
 You can execute a fact with arguments to see if the relation exists in the universe:
 ```
-male(zeus). # true.
-female(mnemosyne). # true.
-female(zeus). # false.
+male(zeus). % true.
+female(mnemosyne). % true.
+female(zeus). % false.
 
-parent(zeus, clio). # true.
-parent(zeus, mnemosyne). # false.
+parent(zeus, clio). % true.
+parent(zeus, mnemosyne). % false.
 ```
 
 #### Substitution:
 You can also leave out an argument of a fact, to see if there are any valid substitutions:
 
 ```
-male(X). # X = zeus.
-female(X). # x = mnemosyne.
+male(X). % X = zeus.
+female(X). % x = mnemosyne.
 
-parent(X, clio). # X = zeus.
+parent(X, clio). % X = zeus.
 ```
 
 Rules
@@ -84,7 +84,7 @@ mother(P, C):-
     parent(P, C),
     female(P).
 
-mother(X, clio). # X = mnemosyne.
+mother(X, clio). % X = mnemosyne.
 ```
 
 Given an argument `P` and `C`, where the fact holds `parent(P, C)` and the fact holds `female(P)`. We can define that `P` to be the mother of `C`.
@@ -114,7 +114,7 @@ is_sibling(C1, C2):-
     mother(X, C1),
     mother(X, C2).
 
-is_sibling(clio, euterpe). # true.
+is_sibling(clio, euterpe). % true.
 ```
 Given arguments `X`, `C1`, and `C2` if `mother(X, _)` holds true for both `C1` and `C2`, we can define `C1` and `C2` to be siblings.
 
@@ -177,7 +177,7 @@ Lists
 The returned value assigned to `CS` from the the command we executed in `swipl` is a list. We can tell it's a list since this is true:
 
 ```
-is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope]) # true
+is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope]) % true
 ```
 
 #### Recursion with lists
@@ -187,10 +187,10 @@ Lists can be represented and unified as the head and tail of the list. You can d
 In order to recurse a list in prolog you must first define the base case to ensure it terminates, and then you can write the recusive logic in another rule definition that has `head` or `tail` values.
 
 ```
-# First define the base case:
+% First define the base case:
 count([], A, A).
 
-# Then write the recursive function:
+% Then write the recursive function:
 count([H | T], A, C):-
     A1 is A + 1,
     count(T, A1, C).
