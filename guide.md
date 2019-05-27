@@ -194,6 +194,24 @@ The returned value assigned to `CS` from the the command we executed in `swipl` 
 is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope]) % true
 ```
 
+#### List declaration
+
+```
+[]
+[a, b, c]
+[1, 2, 3]
+```
+
+#### Working with lists
+
+```
+append([1], 2, XS).
+XS = [1|2].
+
+append([1], [2, 3], XS).
+XS = [1, 2, 3].
+```
+
 #### Recursion with lists
 
 Lists can be represented and unified as the head and tail of the list. You can define a parameter that takes a list type as `[head | tail]` where `head` will be the first element of the list, and `tail` will be the remaining elements of the list.
