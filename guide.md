@@ -166,7 +166,8 @@ For built-in help, use ?- help(Topic). or ?- apropos(Word).
 
 ?- findall(X, child(X, zeus), CS).
 CS = [clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope].
-halt.
+
+?- halt.
 
 $
 ```
