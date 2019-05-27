@@ -1,3 +1,4 @@
+
 ## Guide to Prolog from the beginner:
 
 # Table of Contents
@@ -10,12 +11,15 @@
     2. [Comparing fact checks with different arguments](#comparing-fact-checks-with-different-arguments)
     3. [Composing fact checks](#composing-fact-checks)
     4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
+4. [Using SWI-Prolog][#using-swi-prolog]
 
-### Intro
+Intro
+======
 
 What is prolog anyway? It is a logic based programming language where you define a set of facts that live inside the program, and can build rules that operate upon those facts to work toward a goal.
 
-#### Facts:
+Facts:
+======
 The syntax for defining a fact, is to have the fact name followed by its relations followed by a `.`:
 
 ```
@@ -61,7 +65,8 @@ female(X). # x = mnemosyne.
 parent(X, clio). # X = zeus.
 ```
 
-### Rules
+Rules
+======
 You can write rules which use or combine facts together to work toward a goal.
 
 
@@ -143,5 +148,25 @@ By extension if we wanted to find all children of a person, we would be able to 
 child(C, P):-
     parent(P, C).
 
-findall(X, child(zeus, X), CS). # CS = [ clio, euterpe ]
+findall(X, child(X, zeus), CS). # CS = [ clio, euterpe ]
+```
+
+Using SWI-Prolog
+======
+The standard usage for `swipl` will be to load a file, it will then allow you to execute commands in a Prolog REPL environment. I've left a full program of the family tree code in the file `godfamily.pl`. Here is how you can load the file using `swipl`, execute a query, and then close the REPL.
+
+```
+$ swipl -l godfamily.pl
+
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.0.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- findall(X, child(X, zeus), CS).
+CS = [clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope].
+halt.
+
+$
 ```
