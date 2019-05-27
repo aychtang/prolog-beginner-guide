@@ -12,6 +12,8 @@
     3. [Composing fact checks](#composing-fact-checks)
     4. [Finding all solutions to a rule](#finding-all-solutions-to-a-rule)
 4. [Using SWI-Prolog](#using-swi-prolog)
+5. [Lists](#lists)
+    1. [Recursion with lists](#recursion-with-lists)
 
 Intro
 ======
@@ -168,3 +170,31 @@ CS = [clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, c
 
 $
 ```
+
+Lists
+======
+
+The returned value assigned to `CS` from the the command we executed in `swipl` is a list. We can tell it's a list since this is true:
+
+```
+is_list([clio, euterpe, thalia, melpomeni, terpsichore, erato, polymnia, ourania, calliope]) # true
+```
+
+#### Recursion with lists
+
+Lists can be represented and unified as the head and tail of the list. You can define a parameter that takes a list type as `[head | tail]` where `head` will be the first element of the list, and `tail` will be the remaining elements of the list.
+
+In order to recurse a list in prolog you must first define the base case to ensure it terminates, and then you can write the recusive logic in another rule definition that has `head` or `tail` values.
+
+```
+# First define the base case:
+count([], A, A).
+
+# Then write the recursive function:
+count([H | T], A, C):-
+    A1 is A + 1,
+    count(T, A1, C).
+
+count([1, 2, 3], S) # S = 3.
+```
+
