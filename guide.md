@@ -18,7 +18,9 @@ Guide to Prolog from the beginner:
     2. [Halting the Prolog environment](#halting-the-prolog-environment)
     3. [Reloading the Prolog environment](#reloading-the-prolog-environment)
 5. [Lists](#lists)
-    1. [Recursion with lists](#recursion-with-lists)
+    1. [List declaration](#list-declaration)
+    1. [Working with Lists](#working-with-lists)
+    1. [Recursion with Lists](#recursion-with-lists)
 6. [Practical Prolog](#practical-prolog)
     1. [Main function](#main-function)
     2. [TDD in Prolog](#tdd-in-prolog)
@@ -225,7 +227,7 @@ Notice how in the first evaluation where there is a List returned with only two 
 
 The second `XS` value could be rewritten as [1|[2,3]]
 
-#### Recursion with lists
+#### Recursion with Lists
 
 In order to recurse a list in Prolog you must first define the base case to ensure it terminates, and then you can write the recusive logic in another rule definition that has `head` or `tail` values.
 
