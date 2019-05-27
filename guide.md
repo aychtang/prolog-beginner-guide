@@ -32,7 +32,13 @@ What is Prolog anyway? It is a logic based programming language where you define
 
 Facts:
 ======
-The syntax for defining a fact, is to have the fact name followed by its relations followed by a `.`:
+The syntax for defining a fact, is the following:
+
+```
+factname(relation1, relation2 ... relationN) :- Body (also called goal).
+```
+
+Let's add a few facts to our programs universe:
 
 ```
 male(zeus).
@@ -52,6 +58,14 @@ There is a female Clio.
 
 Zeus is the parent of Clio.
 Mnemosyne is the parent of Clio.
+```
+
+Note that we are using the shorthand here to assert that the Body of all these facts is true.
+
+```
+male(zeus).
+% is synonymous with
+male(zeus) :- true.
 ```
 
 #### Querying facts:
