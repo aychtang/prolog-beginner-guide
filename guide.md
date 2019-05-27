@@ -84,7 +84,7 @@ We can logically define a mother to be a parent of a child, who is also the fema
 
 Expressed as a Prolog rule that would look something like this:
 ```
-mother(P, C):-
+mother(P, C) :-
     parent(P, C),
     female(P).
 
@@ -114,7 +114,7 @@ How can we define a rule to check if Clio is a sibling of Euterpe?
 
 We could say if they each have the same mother, then they are siblings. Expressed in Prolog this would look something like:
 ```
-is_sibling(C1, C2):-
+is_sibling(C1, C2) :-
     mother(X, C1),
     mother(X, C2).
 
@@ -127,12 +127,13 @@ Given arguments `X`, `C1`, and `C2` if `mother(X, _)` holds true for both `C1` a
 Something missing from the `is_sibling` code above, would be siblings that share a father but not the mother, so we would have to make an adjustment to write a better version of the rule.
 
 ```
-father(P, C):-
+father(P, C) :-
     parent(P, C),
     male(P).
 
-is_sibling(C1, C2):-
-    mother(X, C1), mother(X, C2);
+is_sibling(C1, C2) :-
+    mother(X, C1), mother(X, C2)
+    ;
     father(X, C1), father(X, C2).
 ```
 
@@ -223,7 +224,7 @@ In order to recurse a list in Prolog you must first define the base case to ensu
 count([], A, A).
 
 % Then write the recursive function:
-count([H | T], A, C):-
+count([H | T], A, C) :-
     A1 is A + 1,
     count(T, A1, C).
 
@@ -233,10 +234,11 @@ count([1, 2, 3], S) % S = 3.
 Another demonstration of recursion with lists, would be to find whether an element is a member of a list:
 
 ```
-member([], E):-
+member([], E) :-
     false.
-member([H, T], E);-
-    H = E;
+member([H, T], E) :-
+    H = E
+    ;
     member(T, E).
 ```
 
