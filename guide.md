@@ -1,7 +1,8 @@
 
-## Guide to Prolog from the beginner:
+Guide to Prolog from the beginner:
+======
 
-# Table of Contents
+## Table of Contents
 1. [Intro](#intro)
 2. [Facts](#facts)
     1. [Querying Facts](#querying-facts)
