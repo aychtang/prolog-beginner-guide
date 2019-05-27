@@ -3,6 +3,7 @@ Guide to Prolog from the beginner:
 ======
 
 ## Table of Contents
+
 1. [Intro](#intro)
 2. [Facts](#facts)
     1. [Querying Facts](#querying-facts)
@@ -18,6 +19,9 @@ Guide to Prolog from the beginner:
     3. [Reloading the Prolog environment](#reloading-the-prolog-environment)
 5. [Lists](#lists)
     1. [Recursion with lists](#recursion-with-lists)
+6. [Practical Prolog](#practical-prolog)
+    1. [Main function](#main-function)
+    2. [TDD in Prolog](#tdd-in-prolog)
 
 Intro
 ======
@@ -243,3 +247,39 @@ member([H, T], E) :-
 ```
 
 Here we define the base case where member is called with an empty array to be `false`. Then in the member function which has elements in the list, either `H = E` or `member(T, E)` must be satisifed.
+
+Practical Prolog
+======
+
+### Main function
+
+A pattern I've found quite useful when writing Prolog programs is to use a main function that is initialised on startup. In prolog you can define a command that is run on initialization using the `:- intialization {command}` syntax.
+
+Here is how I would write a hello world program in Prolog:
+
+```
+
+:- intialization main.
+
+main :-
+    write('Hello world'), nl, halt.
+
+```
+
+### TDD in Prolog
+
+The motivation to learn Prolog initially was because I wanted to use it to solve a problem in the Tray.io code dojo. In our code dojo's we follow the practice of writing our solutions with a TDD approach which means I need to come up with some way I can define a set of test cases to test my Prolog program.
+
+Prolog seems quite well disposed to writing a test harness for, since a lot of expressions will naturally end up being `true` or `false`. We can define an equals with two definitions, one where the arguments evaluate to the same value, and the other where they differ.
+
+
+```
+equals(T, A, A) :-
+    format("OK: \"~w\" ~n", [T]).
+
+equals(T, A, B) :-
+    format("FAILED: \"~w\" - expected ~w and got ~w ~n", [T, A, B]).
+
+equals("One equals one", 1, 1). % "OK: "One equals one""
+equals("Three equals three", 3, 2). % "FAILED: "Three equals three" - expected 3 and got 2"
+```
