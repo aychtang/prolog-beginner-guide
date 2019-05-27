@@ -52,7 +52,7 @@ parent(X, clio). # X = zeus.
 ```
 
 ### Writing rules
-You can write rules with use or combine facts together to work toward a goal.
+You can write rules which use or combine facts together to work toward a goal.
 
 Let's say we want to find who the mother of a certain person is within our universe, and we wanted to do that through the interface `mother(parent, child)`. We could of course simply add a new fact into the universe, which declares the mother relationships that exist, however we can reduce the number of facts we have to declare by writing facts that can be possibly computed from existing relationships into these rules.
 
