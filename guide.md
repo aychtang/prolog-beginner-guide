@@ -68,7 +68,7 @@ male(zeus).
 male(zeus) :- true.
 ```
 
-#### Querying facts:
+#### Querying facts
 When running this code with a Prolog interpreter we can then run some queries on this set of facts and look at some cool features of Prolog already:
 
 You can execute a Fact with arguments to see if the relation exists in the universe:
@@ -81,7 +81,7 @@ parent(zeus, clio). % true.
 parent(zeus, mnemosyne). % false.
 ```
 
-#### Substitution:
+#### Substitution
 You can also leave out an argument of a Fact, to see if there are any valid substitutions:
 
 ```
@@ -89,6 +89,27 @@ male(X). % X = zeus.
 female(X). % x = mnemosyne.
 
 parent(X, clio). % X = zeus.
+```
+
+#### Where does the X come from?
+
+In Prolog you can add free (or real) variables into your expressions to indicate that a substitution should be made. In the same way you do in an algebraic expression (e.g: 5 = X - 3), when you add a variable that is not in scope of your Prolog expression it will attempt to find a solution for those variables. Here is an example where we add two free variables into a fact check:
+
+```
+parent(X, Y).
+
+% X = zeus,
+% Y = clio.
+```
+
+#### Iterating through solutions
+
+If there can be more than one solution to the variable within a term, you can iterate through them in the Prolog environment by pressing `;`, the environment will continue listing solutions until none are left.
+
+```
+parent(X, clio).
+% X = zeus ;
+% X = mnemosyne.
 ```
 
 Rules
@@ -161,7 +182,7 @@ Here we add the `father(P, C)` rule which was not yet defined, and also use it i
 
 ### Finding all solutions to a rule
 
-By default in SWI-Prolog implementation, when you find the solution to a substitution in a rule, it returns the first valid result. A useful query to make would be to find all possible solutions to a substitution, for example what if I wanted to find all the parents of a person within our universe. To do that we can use the builtin `forall/3`.
+A useful query to make would be to find all possible solutions to a substitution and return it as a list to be used by a later portion of the program, for example what if I wanted to find all the parents of a person within our universe? To do that we can use the builtin `forall/3`.
 
 `findall/3` takes three arguments `findall(Object, Goal, List)`.
 
