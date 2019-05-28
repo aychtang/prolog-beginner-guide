@@ -7,10 +7,10 @@ equals(T, A, A) :-
 equals(T, A, B) :-
     format("FAILED: \"~w\" - expected ~w and got ~w ~n", [T, A, B]).
 
-sqrt(N, R) :-
+square(N, R) :-
     R #= N * N.
 
 main :-
-    sqrt(4, A), equals('sqrt of 4 is 16', A, 16),
-    sqrt(B, 16), equals('Inverse sqrt of 16 is 4', B, 4),
+    square(4, A), equals('square of 4 is 16', A, 16),
+    square(B, 16), equals('sqrt of 16 is 4', B, 4),
     halt.
